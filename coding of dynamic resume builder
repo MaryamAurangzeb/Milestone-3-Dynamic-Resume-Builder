@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/typescript@4.4.3/lib/typescript.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@typescript-eslint/parser@4.29.3/dist/parser.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="max-w-4xl mx-auto p-8 bg-white shadow-md rounded-md">
+        <h1 class="text-2xl font-bold mb-4">Milestone 3: Dynamic Resume Builder</h1>
+        <form id="resumeForm" class="space-y-4">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+            </div>
+            <div>
+                <label for="education" class="block text-sm font-medium text-gray-700">Education</label>
+                <textarea id="education" name="education" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required></textarea>
+            </div>
+            <div>
+                <label for="workExperience" class="block text-sm font-medium text-gray-700">Work Experience</label>
+                <textarea id="workExperience" name="workExperience" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required></textarea>
+            </div>
+            <div>
+                <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+                <textarea id="skills" name="skills" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Generate Resume</button>
+        </form>
+
+        <div id="resume" class="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-md shadow-sm">
+            <h2 class="text-xl font-semibold mb-2">Generated Resume</h2>
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+            <p><strong>Education:</strong> <span id="displayEducation"></span></p>
+            <p><strong>Work Experience:</strong> <span id="displayWorkExperience"></span></p>
+            <p><strong>Skills:</strong> <span id="displaySkills"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('resumeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('displayName').textContent = document.getElementById('name').value;
+            document.getElementById('displayEmail').textContent = document.getElementById('email').value;
+            document.getElementById('displayEducation').textContent = document.getElementById('education').value;
+            document.getElementById('displayWorkExperience').textContent = document.getElementById('workExperience').value;
+            document.getElementById('displaySkills').textContent = document.getElementById('skills').value;
+        });
+    </script>
+</body>
+</html>
